@@ -1,26 +1,21 @@
-class TestClass:
-        def test_one(self):
-            x = "hello"
-            assert 'h' in x
-            print("success1")
+from selenium import webdriver
+import time
+driver = webdriver.Chrome()
+driver.maximize_window()
+driver.get("https://www.baidu.com")
+time.sleep(2)
+driver.find_element_by_id("kw").send_keys("python自动化")
+time.sleep(5)
+driver.find_element_by_id("su").click()
+time.sleep(5)
 
-        def test_two(self):
-            x = "hello"
-            # assert hasattr(x, 'check')
-            assert 'h' in x
-            print("success2")
-
-        def test_three(self):
-            a = "hello"
-            b = "hello world"
-            assert a in b
-            print("success3")
-
-if __name__ == "__main__":
-    demo = TestClass()
-    demo.test_one()
-    demo.test_two()
-    demo.test_three()
+result = driver.find_element_by_id("su")
+result_data = result.get_attribute('value')
+print(result_data)
+assert result_data == "百度一下"
+print("success")
+time.sleep(5)
+driver.quit()
 
     
 
