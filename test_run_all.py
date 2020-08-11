@@ -1,5 +1,3 @@
-import pytest
-
 class TestClass:
         def test_one(self):
             x = "hello"
@@ -19,5 +17,10 @@ class TestClass:
             print("success3")
 
 if __name__ == "__main__":
-    pytest.main('-q test_run_all.py')
+    demo = TestClass()
+    demo.test_one()
+    demo.test_two()
+    demo.test_three()
+
+    
 
